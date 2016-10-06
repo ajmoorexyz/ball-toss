@@ -1,0 +1,32 @@
+{
+  "name": "ball-toss",
+  "version": "0.0.1",
+  "description": "unique take on a socket app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truckfondue/ball-toss.git"
+  },
+  "keywords": [
+    "websocket",
+    "webpack",
+    "node",
+    "typescript",
+    "karma",
+    "jasmine",
+    "express"
+  ],
+  "author": "AJ Moore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/truckfondue/ball-toss/issues"
+  },
+  "homepage": "https://github.com/truckfondue/ball-toss#readme",
+  "devDependencies": {
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3"
+  }
+}
