@@ -1,0 +1,21 @@
+body {
+  font-family: "Helvetica"
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  border-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ball {
+    border-style: none;
+    background-color: hotpink;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%
+}

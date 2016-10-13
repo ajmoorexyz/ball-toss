@@ -4,6 +4,7 @@
   "description": "unique take on a socket app",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf dist && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,7 +27,10 @@
   },
   "homepage": "https://github.com/truckfondue/ball-toss#readme",
   "devDependencies": {
-    "tslint": "^3.15.1",
-    "typescript": "^2.0.3"
+    "typescript": "2.0.3"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "express": "4.14.0"
   }
 }
