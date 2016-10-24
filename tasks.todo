@@ -4,5 +4,6 @@ REMAINING:
   ☐ add server --> express
   ☐ add node.js typings
   ☐ add tslint
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+  * add socket functionality for 2 users -> basic implementation
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
