@@ -2,7 +2,7 @@ version: '2'
 
 services:
   ball-toss:
-    image: truckfondue/ball-toss
+    image: 'truckfondue/ball-toss'
     ports:
       - '1234:1234'
     volumes:

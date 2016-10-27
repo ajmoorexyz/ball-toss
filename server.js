@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // let's load all our assets --> css
 app.get('/public/*', function(req, res){
-  res.sendfile(__dirname + req.url);
+  res.sendFile(__dirname + req.url);
 });
 
 var port = process.env.PORT || 1234;        // set our port
