@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
+    "start": "node_modules/.bin/nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/truckfondue/ball-toss#readme",
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "typescript": "2.0.3"
   },
   "dependencies": {
