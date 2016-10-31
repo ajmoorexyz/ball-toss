@@ -1,9 +1,6 @@
 ****** TASKS ******
 REMAINING:
   ☐ add tdd workflow --> jasmine + karma
-  ☐ add server --> express
-  ☐ add node.js typings
-  ☐ add tslint
-  * add socket functionality for 2 users -> basic implementation
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ add server --> express; @done(2016-10-12 19:54) @project(REMAINING)

@@ -1,59 +1,35 @@
 // BASE SETUP
 // =============================================================================
 
-// call the packages we need
-var express    = require('express');        // call express
-var path       = require('path')
-var bodyParser = require('body-parser');
+var express  = require('express')
+var app      = express()
+var http     = require('http').createServer(app)
+var io       = require('socket.io')(http)
 
-var app        = express();                 // define our app using express
+// static assets
+app.use(express.static(__dirname + '/public'))
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// socket emitters
+io.on('connection', function(socket) {
 
-// let's load all our assets --> css
-app.get('/public/*', function(req, res){
-  res.sendFile(__dirname + req.url);
-});
+  console.log('a user connected')
 
-var port = process.env.PORT || 1234;        // set our port
+  socket.on('disconnect', function() {
+    console.log('user disconnected')
+  })
 
-// ROUTES FOR OUR API
+  socket.on('toss', function(msg) {
+    console.log('message: ' + msg)
+  })
+
+})
+
+// START THE SERVER
 // =============================================================================
-var router = express.Router();              // get an instance of the express Router
 
-// middleware to use for all requests
-router.use(function(req, res, next) {
-    // do logging
-    console.log('Something is happening.');
-    next(); // make sure we go to the next routes and don't stop here
-});
+// set our port
+var port = process.env.PORT || 1234
 
-// there needs to be a route for join
-// this route should link two users in a socket
-// rerout to the view of the ball
-// user that initiated the chat will have first TOSS
-
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname+'/index.html'))
-});
-
-
-// for now use a res.redirect to send the app back to /
-router.post('/api/toss', function(req, res) {
-    console.log('the ball has been tossed')
-});
-
-
-
-// // REGISTER OUR ROUTES -------------------------------
-// // all of our routes will be prefixed with /
-app.use('/', router);
-//
-// // START THE SERVER
-// // =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+http.listen(port, function() {
+  console.log('Magic happens on port: ' + port)
+})
