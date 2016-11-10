@@ -19,7 +19,8 @@ io.on('connection', function(socket) {
   })
 
   socket.on('toss', function(msg) {
-    console.log('message: ' + msg)
+    console.log(`message: ${msg.player}`)
+    socket.broadcast.emit('catch')
   })
 
 })
