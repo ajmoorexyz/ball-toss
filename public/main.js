@@ -1,19 +1,27 @@
-var socket = io()
+// Let's create our socket
+let socket = io()
 
+// let's create a mechanism to manage state
 let reset = false
-// 'toss' is emitted when the submit
-// btn is clicked (tossed)
+
+// 'toss' ~ click-handler
 $('form').submit(function() {
-  socket.emit('toss', { player: new Date() })
-  socket.on('catch', () => { toggle() })
+  // it's important to keep users unique
+  socket.emit( 'toss', { player: new Date() } )
+
+  // toss --> SERVER --> catch
+  socket.on( 'catch', () => { toggle() } )
+
   return false
 })
 
-// this toggle is meant to abstract
-// the business logic from the view
+
+// business logic from the view
 function toggle() {
+
   if (reset) {
     return $('.ball').css( "background-color", "red") && reset != reset
   }
+
   return $('.ball').css( "background-color", "gold") && reset != reset
 }

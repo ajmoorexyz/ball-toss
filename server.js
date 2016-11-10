@@ -1,25 +1,25 @@
 // BASE SETUP
 // =============================================================================
 
-var express  = require('express')
-var app      = express()
-var http     = require('http').createServer(app)
-var io       = require('socket.io')(http)
+let express  = require('express')
+let app      = express()
+let http     = require('http').createServer(app)
+let io       = require('socket.io')(http)
 
 // static assets
 app.use(express.static(__dirname + '/public'))
 
 // socket emitters
-io.on('connection', function(socket) {
-
+io.on('connection', (socket) => {
   console.log('a user connected')
 
-  socket.on('disconnect', function() {
+  socket.on('disconnect', () => {
     console.log('user disconnected')
   })
 
-  socket.on('toss', function(msg) {
+  socket.on('toss', (msg) => {
     console.log(`message: ${msg.player}`)
+
     socket.broadcast.emit('catch')
   })
 
@@ -29,8 +29,8 @@ io.on('connection', function(socket) {
 // =============================================================================
 
 // set our port
-var port = process.env.PORT || 1234
+let port = process.env.PORT || 1234
 
-http.listen(port, function() {
-  console.log('Magic happens on port: ' + port)
+http.listen(port, () => {
+  console.log(`Magic happens on port: ${port}`)
 })

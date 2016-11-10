@@ -12,7 +12,6 @@ body {
   justify-content: center;
 }
 
-
 .ball {
     border-style: none;
     height: 10rem;
@@ -24,6 +23,3 @@ body {
 .pitcher {
   background-color: hotpink;
 }
-/*.catcher {
-  background-color: orange;
-}*/
