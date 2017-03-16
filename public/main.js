@@ -22,6 +22,10 @@ $('form').submit(function() {
   return false
 })
 
+socket.on('message', (data) => {
+  console.log(`users: ${data.users[0].userID}`)
+})
+
 
 // business logic from the view
 function toggle() {
