@@ -8,10 +8,16 @@ let reset = false
 $('form').submit(function() {
 
   // it's important to keep users unique
-  socket.emit( 'toss', { player: new Date() } )
+  socket.emit( 'toss', {
+    // this is where player gets set
+    // it's always different b/c new date is getting called
+    player: new Date()
+  } )
 
   // toss --> SERVER --> catch
-  socket.on( 'catch', () => { toggle(reset) } )
+  socket.on( 'catch', () => {
+    toggle()
+  } )
 
   return false
 })
@@ -31,5 +37,9 @@ function toggle() {
     reset = !reset
     return
 
-
 }
+
+// not yet implemented
+// function disappear() {
+//   $('.ball').css( "display", "none")
+// }
