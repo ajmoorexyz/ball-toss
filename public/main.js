@@ -6,11 +6,18 @@ let reset = false
 
 // 'toss' ~ click-handler
 $('form').submit(function() {
+
   // it's important to keep users unique
-  socket.emit( 'toss', { player: new Date() } )
+  socket.emit( 'toss', {
+    // this is where player gets set
+    // it's always different b/c new date is getting called
+    player: new Date()
+  } )
 
   // toss --> SERVER --> catch
-  socket.on( 'catch', () => { toggle() } )
+  socket.on( 'catch', () => {
+    toggle()
+  } )
 
   return false
 })
@@ -20,8 +27,19 @@ $('form').submit(function() {
 function toggle() {
 
   if (reset) {
-    return $('.ball').css( "background-color", "red") && reset != reset
+    $('.ball').css( "background-color", "red")
+
+    reset = !reset
+    return
   }
 
-  return $('.ball').css( "background-color", "gold") && reset != reset
+    $('.ball').css( "background-color", "gold")
+    reset = !reset
+    return
+
 }
+
+// not yet implemented
+// function disappear() {
+//   $('.ball').css( "display", "none")
+// }
